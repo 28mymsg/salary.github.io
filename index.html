@@ -19,6 +19,8 @@
     <br>
     <input type="text" value="700" id="coachsPrice1" placeholder="教練費1">助教費1<br>
     <input type="text" value="2" id="coachs1" placeholder="教練人數">助教人數<br>
+    <br>
+    <input type="text" value="6" id="classes" placeholder="堂數">堂數<br>
 
     <br>
     <button onclick="caculation()">計算</button>
@@ -33,6 +35,7 @@
             var costObj = document.getElementById("cost");
             var coachs1Obj = document.getElementById("coachs1");
             var coachsPrice1Obj = document.getElementById("coachsPrice1");
+            var classesObj = document.getElementById("classes");
 
             //轉型
             var students = parseInt(studentsObj.value);
@@ -40,6 +43,7 @@
             var cost = parseFloat(costObj.value);
             var coachsPrice1 = parseInt(coachsPrice1Obj.value);
             var coachs1 = parseInt(coachs1Obj.value);
+            var classes = parseInt(classesObj.value);
             
             
             //計算
@@ -59,7 +63,15 @@
             "助教費用：" + coachsPrice1 + "，助教人數：" + coachs1 + "<br>" +
             "助教費總支出：" + totalCoachPrice + "<br><br>" +
 
-            "李金翰時薪：" + lisSalary;
+            "金翰每堂課薪水：" + lisSalary + "<br><br>" +
+
+            "助教上課堂數：" + coachsPrice1 + "*" + classes + " 堂 "+ "<br>" +
+            "助教" + classes + "堂課薪水 = " + coachsPrice1 * classes +
+             
+            "<br><br>" +
+
+            "金翰上課堂數：" + lisSalary + "*" + classes + " 堂 "+ "<br>" +
+            "金翰" + classes + "堂課薪水=" + lisSalary * classes  + "<br>" 
             ;
 
             document.getElementById("result").innerHTML = string;
