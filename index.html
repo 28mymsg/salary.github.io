@@ -1,10 +1,71 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>你好，GitHub</title>
-  </head>
-  <body>
-    <h1>覺得厲害</h1>
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>社團學費計算
+    </title>
+    <style type="text/css">
+        body {
+          background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" value="24" id="students" placeholder="學生人數">學生人數<br>
+    <input type="text" value="200" id="tuition" placeholder="學費">學費<br>
+    <input type="text" value="0.8" id="cost" placeholder="行政費">行政費<br>
+
+    <p>助教費</p>
+    <input type="text" value="700" id="coachsPrice1" placeholder="教練費1">助教費1<br>
+    <input type="text" value="2" id="coachs1" placeholder="教練人數">助教人數<br>
+
+    <br>
+    <button onclick="caculation()">計算</button>
+
+    <p id="result">計算結果</p>
+
+    <script>
+        function caculation(){
+            // 取值
+            var studentsObj = document.getElementById("students");
+            var tuitionObj = document.getElementById("tuition");
+            var costObj = document.getElementById("cost");
+            var coachs1Obj = document.getElementById("coachs1");
+            var coachsPrice1Obj = document.getElementById("coachsPrice1");
+
+            //轉型
+            var students = parseInt(studentsObj.value);
+            var tuition = parseInt(tuitionObj.value);
+            var cost = parseFloat(costObj.value);
+            var coachsPrice1 = parseInt(coachsPrice1Obj.value);
+            var coachs1 = parseInt(coachs1Obj.value);
+            
+            
+            //計算
+            var totalTuition = students * tuition;
+            var totalSalary = totalTuition * cost;
+            var totalCoachPrice = coachsPrice1 * coachs1;
+            var lisSalary = totalSalary - coachsPrice1 * coachs1;
+            console.log(totalTuition, totalSalary, lisSalary)
+
+            let string = 
+            "學生人數：" + students +"，學費：" + tuition + "<br>" +
+            "總學費收入：" + totalTuition + "<br><br>" + 
+
+            "總學費 " + totalTuition + " * " + "行政費 " + cost + "<br>" +
+            "總薪資：" + totalSalary + "<br><br>" +
+
+            "助教費用：" + coachsPrice1 + "，助教人數：" + coachs1 + "<br>" +
+            "助教費總支出：" + totalCoachPrice + "<br><br>" +
+
+            "李金翰時薪：" + lisSalary;
+            ;
+
+            document.getElementById("result").innerHTML = string;
+            
+        }
+    </script>
+</body>
 </html>
